@@ -13,6 +13,17 @@ OUTPUT_DIRS = {
 }
 
 
+def setup_environment():
+    """
+    Creates output directories if they don't exist.
+    """
+    for dir_path in OUTPUT_DIRS.values():
+        os.makedirs(dir_path, exist_ok=True)
+    print("Output directories created/verified")
+
+
+
+
 
 def get_image_list(data_folder):
     """
@@ -165,6 +176,8 @@ def plot_tracking_data(x_history, y_history):
     plt.show()
 
 def main():
+
+    setup_environment()
     
     # Get list of images from data folder
     data_folder = "data"
